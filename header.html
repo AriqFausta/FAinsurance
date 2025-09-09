@@ -133,11 +133,8 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
         <a href="about.php" class="nav-but">About Us</a>
     </div>
     <div class="header-right">
-        <?php if ($is_logged_in): ?>
-            <a href="logout.php" class="logout-but">Logout</a>
-        <?php else: ?>
-            <a href="login.php" class="nav-but">Login</a>
-            <a href="signup.php" class="nav-but">Register</a>
-        <?php endif; ?>
+        <a href="login.php" class="nav-but">Login</a>
+        <a href="signup.php" class="nav-but">Register</a>
     </div>
 </header>
+
