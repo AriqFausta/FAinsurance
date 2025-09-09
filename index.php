@@ -1,0 +1,70 @@
+<?php
+include 'config.php';
+include 'header.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-image : url('asset/background.png');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .up-section {
+            margin-bottom: 20px;
+        }
+        .Logo {
+            width: 300px;
+            height: auto;
+        }
+        .down-section {
+            margin-top: 20px;
+        }
+        .context {
+            font-family: "Oswald", sans-serif;
+            font-size: 60px;
+            color: #fff;
+            margin: 0;
+        }
+        @media (max-width: 700px) {
+            .Logo { width: 160px; }
+            .context { font-size: 30px; }
+            .main-content { height: auto; padding: 30px 0; }
+        }
+        @media (max-width: 450px) {
+            .Logo { width: 100px; }
+            .context { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="main-content">
+            <div class="up-section">
+                <img src="asset/insurance_logo.png" alt="Logo" class="Logo" height="400px">
+            </div>
+            <div class="down-section">
+                <h1 class="context">YOUR TRUSTED</h1>
+                <h1 class="context">INSURANCE COMPANY</h1>
+            </div>
+        </section>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) session_start();
+$is_logged_in = isset($_SESSION['user_id']);
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
+?>
+<style>
+    header {
+        background: linear-gradient(90deg, rgba(33,150,243,0.65) 0%, rgba(21,101,192,0.65) 100%);
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 0 2px 12px rgba(33, 150, 243, 0.10);
+    }
+    .header-left {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    .header-center {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-right {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .header-left h1 {
+        color: #fff;
+        display: block;
+        margin-right: 0px;
+        letter-spacing: 2px;
+        text-shadow: 1px 2px 8px rgba(21,101,192,0.15);
+    }
+    header a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    h1 {
+        font-family: "Oswald", sans-serif;
+        font-size: 27px;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        color: #fff;
+        margin: 0;
+    }
+    .nav-but {
+        font-family: "Oswald", sans-serif;
+        font-size: 20px;
+        color:rgb(0, 33, 84); 
+        font-weight: bold;
+        padding: 10px 22px;
+        border-radius: 5px;
+        background: rgb(194, 223, 255);
+        border: none;
+        box-shadow: 0 2px 8px rgba(255, 183, 77, 0.15);
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    }
+    .nav-but:hover {
+        background: linear-gradient(90deg, #ff7b54 0%, #ffb347 100%);
+        color: #fffde7;
+        box-shadow: 0 4px 16px rgba(255, 183, 77, 0.22);
+    }
+    .logout-but {
+        font-family: "Oswald", sans-serif;
+        font-size: 20px;
+        color:rgb(0, 33, 84);
+        font-weight: bold;
+        padding: 10px 22px;
+        border-radius: 5px;
+        background: rgb(194, 223, 255);
+        border: none;
+        box-shadow: 0 2px 8px rgba(255, 183, 77, 0.15);
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        margin-left: 120px;
+    }
+    .logout-but:hover {
+        background: linear-gradient(90deg, #ff7b54 0%, #ffb347 100%);
+        color: #fffde7;
+        box-shadow: 0 4px 16px rgba(255, 183, 77, 0.22);
+    }
+
+    @media (max-width: 700px) {
+        header {
+            flex-direction: column;
+            padding: 12px 4px;
+            align-items: flex-start;
+        }
+        .header-left, .header-center, .header-right {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+        .header-center, .header-right {
+            justify-content: flex-start;
+        }
+        .header-left h1 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .nav-but, .logout-but {
+            font-size: 15px;
+            padding: 8px 12px;
+            margin: 4px 0;
+            margin-left: 0;
+        }
+    }
+    @media (max-width: 400px) {
+        .header-left h1 { font-size: 14px; }
+        .nav-but, .logout-but { font-size: 12px; padding: 6px 8px; }
+    }
+</style>
+
+<header>
+    <div class="header-left">
+        <h1>FA INSURANCE</h1>
+    </div>
+    <div class="header-center">
+        <a href="index.php" class="nav-but">Home</a>
+        <?php if ($is_logged_in && $role === 'admin'): ?>
+            <a href="admin.php" class="nav-but">Dashboard</a>
+        <?php else: ?>
+            <a href="dashboard.php" class="nav-but">Dashboard</a>
+        <?php endif; ?>
+        <a href="about.php" class="nav-but">About Us</a>
+    </div>
+    <div class="header-right">
+        <?php if ($is_logged_in): ?>
+            <a href="logout.php" class="logout-but">Logout</a>
+        <?php else: ?>
+            <a href="login.php" class="nav-but">Login</a>
+            <a href="signup.php" class="nav-but">Register</a>
+        <?php endif; ?>
+    </div>
+</header>

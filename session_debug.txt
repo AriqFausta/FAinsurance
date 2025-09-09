@@ -1,0 +1,5 @@
+Array
+(
+    [user_id] => N164368
+    [role] => user
+)
